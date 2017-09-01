@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Paige and Tristan's Wedding Day Countdown</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="timerContainer">
+                    <p id="only">Only,</p>
+                    <p class="timer" id="timer"></p>
+                    <p id="tp">until Paige and Tristan get hitched!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="section2" class="container-fluid">
+        <div class="row-centered">
+            <div class="col-sm-3">Zola</div>
+            <div class="col-sm-3 col-sm-offset-5">Kohl's</div> 
+        </div>
+        <div class="row-centered">
+            <div class="col-sm-3">Macy's</div>
+            <div class="col-sm-3 col-sm-offset-5">Pottery Barn</div>
+        </div>
+    </div>
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Oct 13, 2017 15:00:00").getTime();
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+            // Get todays date and time
+            var now = new Date().getTime();
+            // Find the distance between now and then
+            var distance = countDownDate - now;
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // Output 
+            document.getElementById("timer").innerHTML = days + " days " + hours + " hours <br>" + minutes + " minutes " + seconds + " seconds "
+                // If the count down is over 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "Tristan and Paige were married at 5 o'clock on Friday the 13th 2017!";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
